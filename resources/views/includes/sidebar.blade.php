@@ -2,8 +2,8 @@
   <div class="scrollbar-inner">
     <div class="sidenav-header d-flex align-items-center">
       <a class="navbar-brand" href="{{ route('beranda') }}">
-        {{-- <img src="{{ url('frontend/assets/img/brand/blue.png') }}" class="navbar-brand-img" alt="..."> --}}
-        <h1 class="text-primary">Imunisasiku</h1>
+        <img src="{{ url('frontend/images/logo.png') }}" class="navbar-brand-img" alt="...">
+        <h1 class="d-inline align-middle text-primary">Imunisasiku</h1>
       </a>
       <div class="ml-auto">
         <div class="sidenav-toggler d-none d-xl-block" data-action="sidenav-unpin" data-target="#sidenav-main">

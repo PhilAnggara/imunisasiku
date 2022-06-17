@@ -6,7 +6,9 @@
 
 <script src="{{ url('frontend/assets/vendor/chart.js/dist/Chart.min.js') }}"></script>
 <script src="{{ url('frontend/assets/vendor/chart.js/dist/Chart.extension.js') }}"></script>
+<script src="{{ url('frontend/vendors/sweetalert/sweetalert2.js') }}"></script>
 
 <script src="{{ url('frontend/assets/js/argon.js?v=1.1.0') }}"></script>
 
 <script src="{{ url('frontend/assets/js/demo.min.js') }}"></script>
+<script src="{{ url('frontend/scripts/main.js') }}"></script>

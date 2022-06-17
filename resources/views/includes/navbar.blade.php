@@ -145,15 +145,18 @@
             <div class="dropdown-header noti-title">
               <h6 class="text-overflow m-0">Halo, {{ Str::before(auth()->user()->name, ' ') }}!</h6>
             </div>
-            <a href="#" class="dropdown-item">
+            <a href="#" class="dropdown-item" data-toggle="modal" data-target="#gantiPasswordModal">
               <i class="ni ni-lock-circle-open"></i>
               <span>Ganti password</span>
             </a>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
+            <a href="#" class="dropdown-item" data-toggle="modal" data-target="#keluarModal">
               <i class="ni ni-user-run"></i>
               <span>Keluar</span>
             </a>
+            {{-- <form action="{{ route('logout') }}" id="keluar" method="POST">
+              @csrf
+            </form> --}}
           </div>
         </li>
       </ul>
