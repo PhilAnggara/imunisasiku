@@ -31,7 +31,7 @@
               <a href="#" class="list-group-item list-group-item-action">
                 <div class="row align-items-center">
                   <div class="col-auto">
-                    <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=307bf2&color=fff&bold=true&name=JS"
+                    <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=2DCEBE&color=fff&bold=true&name=RS"
                       class="avatar rounded-circle">
                   </div>
                   <div class="col ml--2">
@@ -50,7 +50,7 @@
               <a href="#" class="list-group-item list-group-item-action">
                 <div class="row align-items-center">
                   <div class="col-auto">
-                    <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=307bf2&color=fff&bold=true&name=JS"
+                    <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=2DCEBE&color=fff&bold=true&name=RS"
                       class="avatar rounded-circle">
                   </div>
                   <div class="col ml--2">
@@ -69,7 +69,7 @@
               <a href="#" class="list-group-item list-group-item-action">
                 <div class="row align-items-center">
                   <div class="col-auto">
-                    <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=307bf2&color=fff&bold=true&name=JS"
+                    <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=2DCEBE&color=fff&bold=true&name=RS"
                       class="avatar rounded-circle">
                   </div>
                   <div class="col ml--2">
@@ -88,7 +88,7 @@
               <a href="#" class="list-group-item list-group-item-action">
                 <div class="row align-items-center">
                   <div class="col-auto">
-                    <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=307bf2&color=fff&bold=true&name=JS"
+                    <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=2DCEBE&color=fff&bold=true&name=RS"
                       class="avatar rounded-circle">
                   </div>
                   <div class="col ml--2">
@@ -107,7 +107,7 @@
               <a href="#" class="list-group-item list-group-item-action">
                 <div class="row align-items-center">
                   <div class="col-auto">
-                    <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=307bf2&color=fff&bold=true&name=JS"
+                    <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=2DCEBE&color=fff&bold=true&name=RS"
                       class="avatar rounded-circle">
                   </div>
                   <div class="col ml--2">

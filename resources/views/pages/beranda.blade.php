@@ -20,14 +20,14 @@
                   <span class="h2 font-weight-bold mb-0">123</span>
                 </div>
                 <div class="col-auto">
-                  <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                  <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
                     <i class="fa-solid fa-users"></i>
                   </div>
                 </div>
               </div>
               <p class="mt-3 mb-0 text-sm">
-                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 10%</span>
-                <span class="text-nowrap">Sejak bulan lalu</span>
+                {{-- <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 10%</span>
+                <span class="text-nowrap">Sejak bulan lalu</span> --}}
               </p>
             </div>
           </div>
@@ -41,14 +41,14 @@
                   <span class="h2 font-weight-bold mb-0">123</span>
                 </div>
                 <div class="col-auto">
-                  <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-                    <i class="fa-solid fa-users"></i>
+                  <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                    <i class="fa-solid fa-calendar-day"></i>
                   </div>
                 </div>
               </div>
               <p class="mt-3 mb-0 text-sm">
-                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 10%</span>
-                <span class="text-nowrap">Sejak bulan lalu</span>
+                {{-- <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 10%</span>
+                <span class="text-nowrap">Sejak bulan lalu</span> --}}
               </p>
             </div>
           </div>
@@ -62,14 +62,14 @@
                   <span class="h2 font-weight-bold mb-0">123</span>
                 </div>
                 <div class="col-auto">
-                  <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                    <i class="fa-solid fa-users"></i>
+                  <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                    <i class="fa-solid fa-clipboard-list-check"></i>
                   </div>
                 </div>
               </div>
               <p class="mt-3 mb-0 text-sm">
-                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 10%</span>
-                <span class="text-nowrap">Sejak bulan lalu</span>
+                {{-- <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 10%</span>
+                <span class="text-nowrap">Sejak bulan lalu</span> --}}
               </p>
             </div>
           </div>
@@ -83,14 +83,14 @@
                   <span class="h2 font-weight-bold mb-0">123</span>
                 </div>
                 <div class="col-auto">
-                  <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
-                    <i class="fa-solid fa-users"></i>
+                  <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                    <i class="fa-solid fa-calendar-xmark"></i>
                   </div>
                 </div>
               </div>
               <p class="mt-3 mb-0 text-sm">
-                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 10%</span>
-                <span class="text-nowrap">Sejak bulan lalu</span>
+                {{-- <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 10%</span>
+                <span class="text-nowrap">Sejak bulan lalu</span> --}}
               </p>
             </div>
           </div>
@@ -175,8 +175,8 @@
       }
     },
     series: [{
-      name: "Pesanan",
-      data: [1,2,3,4,5,6,7]
+      name: "Anak yang diimunisasi",
+      data: [14,14,15,17,18,16,17]
     }],
     stroke: {
       curve: 'smooth'

@@ -8,6 +8,10 @@
 /* -324CDD */
 /* 1eb34a */
 
+/* Bg default & fill default */
+/* -172B4D */
+/* c2ffd1 */
+
 :root
 {
     --blue: #66d389 ;
@@ -8540,7 +8544,7 @@ button.bg-dark:focus
 
 .bg-default
 {
-    background-color: #172b4d !important;
+    background-color: #c2ffd1 !important;
 }
 
 a.bg-default:hover,
@@ -17421,7 +17425,7 @@ button.bg-darker:focus
 a.text-primary:hover,
 a.text-primary:focus
 {
-    color: #233dd2 !important;
+    color: #1eb34a !important;
 }
 
 .text-secondary
@@ -25013,7 +25017,7 @@ button.section-darker:focus
 
 .bg-gradient-primary
 {
-    background: linear-gradient(87deg, #66d389  0, #825ee4 100%) !important;
+    background: linear-gradient(87deg, #46d473  0, #b3f2c7 100%) !important;
 }
 
 .bg-gradient-secondary
@@ -25153,7 +25157,7 @@ button.section-darker:focus
 
 .fill-default
 {
-    fill: #172b4d;
+    fill: #c2ffd1;
 }
 
 .stroke-default
