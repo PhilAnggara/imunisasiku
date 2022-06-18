@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\RekamMedis;
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -17,9 +18,11 @@ class RekamMedisSeeder extends Seeder
     {
         RekamMedis::create([
             'id_anak' => 1,
-            'keluhan' => 'Sakit Perut',
-            'penanganan' => 'Pemberian Obat',
-            'dokter_perawat' => 'Jonathan Tontong',
+            'tanggal' => Carbon::now()->subMonth(5)->startOfMonth(),
+            'keluhan' => 'Menangis',
+            'penanganan' => 'Pemberian obat tidur',
+            'ket' => '',
+            'tenaga_medis' => 'Adrian Tontong',
         ]);
     }
 }

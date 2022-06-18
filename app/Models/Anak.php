@@ -22,55 +22,40 @@ class Anak extends Model
 
     ];
 
-    public function wali()
+    public function ibu()
     {
         return $this->belongsTo(User::class, 'id_user', 'id');
     }
-
-    public function imunisasi()
-    {
-        return $this->hasMany(Imunisasi::class, 'id_anak', 'id');
-    }
-
-    public function rekamMedis()
-    {
-        return $this->hasMany(RekamMedis::class, 'id_anak', 'id');
-    }
-
     public function tempatLahir()
     {
         return $this->belongsTo(Kabupaten::class, 'id_kabupaten', 'id');
     }
 
-    public function alamat()
+    public function pertumbuhan()
     {
-        return $this->belongsTo(Desa::class, 'id_kelurahan', 'id');
+        return $this->hasMany(RiwayatPertumbuhan::class, 'id_anak', 'id');
+    }
+    public function rekamMedis()
+    {
+        return $this->hasMany(RekamMedis::class, 'id_anak', 'id');
+    }
+    public function imunisasi()
+    {
+        return $this->hasMany(Imunisasi::class, 'id_anak', 'id');
     }
 
 
     public function umur()
     {
         $tahun = Carbon::parse($this->tanggal_lahir)->age;
-        $bulan = Carbon::parse($this->tanggal_lahir)->diffInMonths(Carbon::now()) % 12;
+        $bulan = Carbon::parse($this->tanggal_lahir)->diffInMonths(Carbon::now());
         
-        if ($bulan == 0) {
+        if ($bulan < 12) {
+            return $bulan.' bulan';
+        } elseif ($bulan % 12 == 0) {
             return $tahun.' tahun';
-        }
-
-        return $tahun.' tahun '.$bulan.' bulan';
-    }
-    public function getJadwal()
-    {
-        if (Carbon::parse($this->imunisasi->last()->jadwal->tanggal) == Carbon::today()) {
-            return 'Hari ini';
-        } elseif (Carbon::parse($this->imunisasi->last()->jadwal->tanggal) < Carbon::today()) {
-            if ($this->imunisasi->last()->selesai) {
-                return 'Selesai ('.Carbon::parse($this->imunisasi->last()->jadwal->tanggal)->isoFormat(' D MMM YYYY').' )';
-            } else {
-                return 'Terlewat ('.Carbon::parse($this->imunisasi->last()->jadwal->tanggal)->isoFormat(' D MMM YYYY').' )';
-            }
         } else {
-            return Carbon::parse($this->imunisasi->last()->jadwal->tanggal)->isoFormat(' D MMM YYYY');
+            return $tahun.' tahun '.$bulan.' bulan';
         }
     }
 }

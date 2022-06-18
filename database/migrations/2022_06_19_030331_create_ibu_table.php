@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rekam_medis', function (Blueprint $table) {
+        Schema::create('ibu', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_anak');
-            $table->string('keluhan');
-            $table->string('penanganan');
-            $table->string('dokter_perawat');
+            $table->foreignId('id_user');
+            $table->foreignId('id_kelurahan');
+            $table->string('nama_suami');
+            $table->string('no_hp');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rekam_medis');
+        Schema::dropIfExists('ibu');
     }
 };

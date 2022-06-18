@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Desa extends Model
+class Kelurahan extends Model
 {
     use HasFactory;
 
-    protected $table = 'desa';
+    protected $table = 'kelurahan';
 
     public function kec()
     {

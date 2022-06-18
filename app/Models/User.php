@@ -42,6 +42,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function detail()
+    {
+        return $this->hasOne(Ibu::class, 'id_user', 'id');
+    }
     public function anak()
     {
         return $this->hasOne(Anak::class, 'id_user', 'id');

@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('imunisasi', function (Blueprint $table) {
+        Schema::create('riwayat_pertumbuhan', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_anak');
-            $table->foreignId('id_jadwal');
+            $table->string('bb');
+            $table->string('tb');
+            $table->string('lk');
             $table->date('tanggal');
-            $table->boolean('selesai')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('imunisasi');
+        Schema::dropIfExists('riwayat_pertumbuhan');
     }
 };

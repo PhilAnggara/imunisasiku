@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class JenisImunisasi extends Model
+class PanduanIbu extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
-    protected $table = 'jenis_imunisasi';
+    protected $table = 'panduan_ibu';
 
     protected $guarded = [
         'id'
@@ -20,9 +20,4 @@ class JenisImunisasi extends Model
     protected $hidden = [
 
     ];
-
-    public function imunisasi()
-    {
-        return $this->hasMany(Imunisasi::class, 'id_jenis', 'id');
-    }
 }

@@ -23,26 +23,5 @@ class UserSeeder extends Seeder
             'role' => 'Admin',
             'password' => Hash::make('Admin123')
         ]);
-        User::create([
-            'name' => 'Rolly Sahelangi',
-            'username' => 'rollysahelangi',
-            'email' => 'rollysahelangi@gmail.com',
-            'role' => 'User',
-            'password' => Hash::make('Pengguna123')
-        ]);
-        User::create([
-            'name' => 'Aditya Manansang',
-            'username' => 'adityamanansang',
-            'email' => 'adityamanansang@gmail.com',
-            'role' => 'User',
-            'password' => Hash::make('Pengguna123')
-        ]);
-        User::create([
-            'name' => 'Rudolfo Sombouwadil',
-            'username' => 'rudolfosombouwadil',
-            'email' => 'rudolfosombouwadil@gmail.com',
-            'role' => 'User',
-            'password' => Hash::make('Pengguna123')
-        ]);
     }
 }

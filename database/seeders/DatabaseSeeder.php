@@ -17,11 +17,13 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
+            IbuSeeder::class,
             AnakSeeder::class,
-            JadwalImunisasiSeeder::class,
-            JenisImunisasiSeeder::class,
-            ImunisasiSeeder::class,
+            RiwayatPertumbuhanSeeder::class,
             RekamMedisSeeder::class,
+            JenisVaksinSeeder::class,
+            ImunisasiSeeder::class,
+            PanduanIbuSeeder::class,
         ]);
     }
 }

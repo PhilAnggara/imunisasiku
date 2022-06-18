@@ -18,27 +18,10 @@ class ImunisasiSeeder extends Seeder
     {
         Imunisasi::create([
             'id_anak' => 1,
-            'id_jadwal' => 5,
-            'tanggal' => Carbon::today()->subDays(1),
-            'selesai' => true,
-        ]);
-        Imunisasi::create([
-            'id_anak' => 2,
-            'id_jadwal' => 5,
-            'tanggal' => Carbon::today()->subDays(1),
-            'selesai' => true,
-        ]);
-        Imunisasi::create([
-            'id_anak' => 1,
-            'id_jadwal' => 6,
-            'tanggal' => Carbon::today(),
-            'selesai' => false,
-        ]);
-        Imunisasi::create([
-            'id_anak' => 3,
-            'id_jadwal' => 7,
-            'tanggal' => Carbon::today()->addDay(),
-            'selesai' => false,
+            'id_jenis_vaksin' => 1,
+            'tanggal_dijadwalkan' => Carbon::tomorrow(),
+            'tanggal_imunisasi' => null,
+            'tenaga_medis' => 'Adrian Tontong',
         ]);
     }
 }
