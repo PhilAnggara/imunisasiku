@@ -15,15 +15,10 @@ return new class extends Migration
     {
         Schema::create('rekam_medis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user');
-            $table->foreignId('id_kabupaten');
-            $table->foreignId('id_kelurahan');
-            $table->string('nama');
-            $table->date('tanggal_lahir');
-            $table->string('nama_ibu');
-            $table->string('nama_ayah');
-            $table->string('no_hp');
-            $table->string('status');
+            $table->foreignId('id_anak');
+            $table->string('keluhan');
+            $table->string('penanganan');
+            $table->string('dokter_perawat');
             $table->timestamps();
             $table->softDeletes();
         });

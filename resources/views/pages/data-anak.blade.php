@@ -43,7 +43,7 @@
                   <td>{{ $item->nama }}</td>
                   <td>{{ $item->umur() }}</td>
                   <td>{{ $item->alamat->nama }}</td>
-                  <td>{{ $item->alamat->nama }}</td>
+                  <td>{{ $item->getJadwal() }}</td>
                   <td>
                     <div class="btn-group" role="group" aria-label="Basic example">
                       <button type="button" class="btn btn-sm table-action" data-toggle="modal" data-target="#exampleModal">

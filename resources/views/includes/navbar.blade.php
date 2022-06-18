@@ -124,7 +124,7 @@
                 </div>
               </a>
             </div>
-            <a href="#" class="dropdown-item text-center text-primary font-weight-bold py-3">Lihat semua</a>
+            <a href="{{ route('jadwal-imunisasi.index') }}" class="dropdown-item text-center text-primary font-weight-bold py-3">Lihat semua</a>
           </div>
         </li>
       </ul>

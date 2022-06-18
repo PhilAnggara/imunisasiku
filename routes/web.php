@@ -22,7 +22,8 @@ Route::middleware('auth')->group(function () {
   Route::resource('pendaftaran-imunisasi', ImunisasiController::class);
   Route::resource('jadwal-imunisasi', JadwalImunisasiController::class);
   Route::resource('data-anak', AnakController::class);
-  Route::resource('daftar-anak', ImunisasiController::class);
+  Route::get('penerima-imunisasi', [MainController::class, 'penerimaImunisasi'])->name('penerima-imunisasi');
+  Route::get('panduan-ibu', [MainController::class, 'panduanIbu'])->name('panduan-ibu');
 });
 
 require __DIR__.'/auth.php';

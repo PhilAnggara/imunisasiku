@@ -20,4 +20,14 @@ class Imunisasi extends Model
     protected $hidden = [
 
     ];
+
+    public function anak()
+    {
+        return $this->belongsTo(Anak::class, 'id_anak', 'id');
+    }
+
+    public function jadwal()
+    {
+        return $this->belongsTo(JadwalImunisasi::class, 'id_jadwal', 'id');
+    }
 }

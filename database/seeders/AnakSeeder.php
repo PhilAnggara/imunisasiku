@@ -28,7 +28,7 @@ class AnakSeeder extends Seeder
             'status' => 'Menunggu',
         ]);
         Anak::create([
-            'id_user' => 2,
+            'id_user' => 3,
             'id_kabupaten' => 7172,
             'id_kelurahan' => 7172051002,
             'nama' => 'Jesika Manansang',
@@ -39,9 +39,9 @@ class AnakSeeder extends Seeder
             'status' => 'Menunggu',
         ]);
         Anak::create([
-            'id_user' => 2,
+            'id_user' => 4,
             'id_kabupaten' => 7171,
-            'id_kelurahan' => 7171021003,
+            'id_kelurahan' => 7171021002,
             'nama' => 'Sanchez Fernando',
             'tanggal_lahir' => Carbon::parse('2020-05-01'),
             'nama_ibu' => 'Rudolfo Sombouwadil',

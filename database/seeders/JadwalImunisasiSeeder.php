@@ -52,5 +52,11 @@ class JadwalImunisasiSeeder extends Seeder
             'jumlah_dibuka' => 7,
             'dokter_perawat' => 'Jonathan Tontong',
         ]);
+        JadwalImunisasi::create([
+            'id_jenis' => 1,
+            'tanggal' => Carbon::today()->addDay(),
+            'jumlah_dibuka' => 10,
+            'dokter_perawat' => 'Adrian Tontong',
+        ]);
     }
 }

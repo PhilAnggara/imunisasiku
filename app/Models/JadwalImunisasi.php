@@ -27,6 +27,11 @@ class JadwalImunisasi extends Model
         return $this->belongsTo(JenisImunisasi::class, 'id_jenis', 'id');
     }
 
+    public function imunisasi()
+    {
+        return $this->hasMany(Imunisasi::class, 'id_jadwal', 'id');
+    }
+
 
     public function tanggal()
     {

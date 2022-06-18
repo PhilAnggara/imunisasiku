@@ -10,4 +10,9 @@ class MainController extends Controller
     {
         return view('pages.beranda');
     }
+
+    public function penerimaImunisasi()
+    {
+        return view('pages.penerima-imunisasi');
+    }
 }

@@ -16,14 +16,9 @@ return new class extends Migration
         Schema::create('imunisasi', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_anak');
-            $table->foreignId('id_jenis_imunisasi');
-            $table->foreignId('id_kelurahan');
-            $table->string('nama');
-            $table->date('tanggal_lahir');
-            $table->string('nama_ibu');
-            $table->string('nama_ayah');
-            $table->string('no_hp');
-            $table->string('status');
+            $table->foreignId('id_jadwal');
+            $table->date('tanggal');
+            $table->boolean('selesai')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });

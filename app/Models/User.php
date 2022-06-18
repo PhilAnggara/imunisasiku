@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function anak()
+    {
+        return $this->hasOne(Anak::class, 'id_user', 'id');
+    }
 }

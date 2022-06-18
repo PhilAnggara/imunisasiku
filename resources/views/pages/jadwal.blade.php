@@ -12,7 +12,7 @@
         <div class="col-lg-6 col-5 text-right">
           <button type="button" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#tambahData">
             <i class="fas fa-plus"></i>
-            Tambah Data
+            Buat Jadwal
           </button>
         </div>
       </div>
@@ -33,6 +33,7 @@
                 <th>Jenis Imunisasi</th>
                 <th>Jumlah Yang Dibuka</th>
                 <th>Dokter / Perawat</th>
+                <th>Jumlah Pendaftar</th>
                 <th></th>
               </tr>
             </thead>
@@ -44,6 +45,7 @@
                   <td>{{ $item->jenis->nama_imunisasi }}</td>
                   <td>{{ $item->jumlah_dibuka }}</td>
                   <td>{{ $item->dokter_perawat }}</td>
+                  <td>{{ $loop->iteration *2 }}</td>
                   <td>
                     <div class="btn-group" role="group" aria-label="Basic example">
                       <button type="button" class="btn btn-sm table-action" data-toggle="modal" data-target="#exampleModal">
