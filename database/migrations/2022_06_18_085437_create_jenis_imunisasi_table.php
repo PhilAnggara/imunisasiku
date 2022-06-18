@@ -13,17 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('imunisasi', function (Blueprint $table) {
+        Schema::create('jenis_imunisasi', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_anak');
-            $table->foreignId('id_jenis_imunisasi');
-            $table->foreignId('id_kelurahan');
-            $table->string('nama');
-            $table->date('tanggal_lahir');
-            $table->string('nama_ibu');
-            $table->string('nama_ayah');
-            $table->string('no_hp');
-            $table->string('status');
+            $table->string('nama_imunisasi');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -36,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('imunisasi');
+        Schema::dropIfExists('jenis_imunisasi');
     }
 };

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AnakController;
 use App\Http\Controllers\ImunisasiController;
+use App\Http\Controllers\JadwalImunisasiController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth')->group(function () {
   Route::get('/', [MainController::class, 'beranda'])->name('beranda');
   Route::resource('pendaftaran-imunisasi', ImunisasiController::class);
-  Route::resource('data-anak', ImunisasiController::class);
+  Route::resource('jadwal-imunisasi', JadwalImunisasiController::class);
+  Route::resource('data-anak', AnakController::class);
   Route::resource('daftar-anak', ImunisasiController::class);
 });
 

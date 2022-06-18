@@ -39,7 +39,7 @@
                   <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required>
                 </div>
                 @error('email')
-                  <small class="text-danger">{{ $message }}</small>
+                  <small class="text-danger">Email atau kata sandi yang anda masukan salah</small>
                 @enderror
               </div>
               <div class="form-group">

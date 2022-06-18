@@ -28,19 +28,25 @@
         <hr class="my-3">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('pendaftaran-imunisasi.index') ? 'active' : ''}}" href="{{ route('beranda') }}">
-              <i class="fad fa-syringe {{ !Request::is('pendaftaran-imunisasi.index') ? 'text-primary' : ''}}"></i>
+            <a class="nav-link {{ Request::is('jadwal-imunisasi') ? 'active bg-primary text-white' : ''}}" href="{{ route('jadwal-imunisasi.index') }}">
+              <i class="fad fa-calendar-days {{ !Request::is('jadwal-imunisasi') ? 'text-primary' : ''}}"></i>
+              <span class="nav-link-text">Jawdal Imunisasi</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('pendaftaran-imunisasi') ? 'active bg-primary text-white' : ''}}" href="{{ route('data-anak.index') }}">
+              <i class="fad fa-syringe {{ !Request::is('pendaftaran-imunisasi') ? 'text-primary' : ''}}"></i>
               <span class="nav-link-text">Pendaftaran Imunisasi</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('data-anak.index') ? 'active' : ''}}" href="{{ route('beranda') }}">
-              <i class="fad fa-baby {{ !Request::is('data-anak.index') ? 'text-primary' : ''}}"></i>
+            <a class="nav-link {{ Request::is('data-anak') ? 'active bg-primary text-white' : ''}}" href="{{ route('data-anak.index') }}">
+              <i class="fad fa-baby {{ !Request::is('data-anak') ? 'text-primary' : ''}}"></i>
               <span class="nav-link-text">Data Diri Anak</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('daftar-anak.index') ? 'active' : ''}}" href="{{ route('beranda') }}">
+            <a class="nav-link {{ Request::is('daftar-anak.index') ? 'active bg-primary text-white' : ''}}" href="{{ route('data-anak.index') }}">
               <i class="fad fa-baby-carriage {{ !Request::is('daftar-anak.index') ? 'text-primary' : ''}}"></i>
               <span class="nav-link-text">Daftar Anak</span>
             </a>

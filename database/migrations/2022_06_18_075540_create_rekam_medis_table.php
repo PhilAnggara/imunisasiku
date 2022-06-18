@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('imunisasi', function (Blueprint $table) {
+        Schema::create('rekam_medis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_anak');
-            $table->foreignId('id_jenis_imunisasi');
+            $table->foreignId('id_user');
+            $table->foreignId('id_kabupaten');
             $table->foreignId('id_kelurahan');
             $table->string('nama');
             $table->date('tanggal_lahir');
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('imunisasi');
+        Schema::dropIfExists('rekam_medis');
     }
 };
