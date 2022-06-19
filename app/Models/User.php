@@ -50,4 +50,21 @@ class User extends Authenticatable
     {
         return $this->hasOne(Anak::class, 'id_user', 'id');
     }
+
+    public function admin()
+    {
+        if (auth()->user()->role == 'Admin') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function ibu()
+    {
+        if (auth()->user()->role == 'User') {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

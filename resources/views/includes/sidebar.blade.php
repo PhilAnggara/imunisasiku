@@ -27,20 +27,26 @@
         </ul>
         <hr class="my-3">
         <ul class="navbar-nav">
-          <li class="nav-item">
+          @if (auth()->user()->ibu())
+            <li class="nav-item">
+              <a class="nav-link {{ Request::is('anak') ? 'active bg-primary text-white' : ''}}" href="{{ route('anak') }}">
+                <i class="fad fa-baby {{ !Request::is('anak') ? 'text-primary' : ''}}"></i>
+                <span class="nav-link-text">Data Diri Anak</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{ Request::is('panduan-ibu*') ? 'active bg-primary text-white' : ''}}" href="{{ route('panduan-ibu') }}">
+                <i class="fad fa-baby-carriage {{ !Request::is('panduan-ibu*') ? 'text-primary' : ''}}"></i>
+                <span class="nav-link-text">Panduan Ibu</span>
+              </a>
+            </li>
+          @endif
+          {{-- <li class="nav-item">
             <a class="nav-link {{ Request::is('jadwal-imunisasi') ? 'active bg-primary text-white' : ''}}" href="{{ route('jadwal-imunisasi.index') }}">
               <i class="fad fa-calendar-days {{ !Request::is('jadwal-imunisasi') ? 'text-primary' : ''}}"></i>
               <span class="nav-link-text">Jawdal Imunisasi</span>
             </a>
           </li>
-          @if (auth()->user()->role == 'User')
-            <li class="nav-item">
-              <a class="nav-link {{ Request::is('pendaftaran-imunisasi') ? 'active bg-primary text-white' : ''}}" href="{{ route('data-anak.index') }}">
-                <i class="fad fa-syringe {{ !Request::is('pendaftaran-imunisasi') ? 'text-primary' : ''}}"></i>
-                <span class="nav-link-text">Pendaftaran Imunisasi</span>
-              </a>
-            </li>
-          @endif
           <li class="nav-item">
             <a class="nav-link {{ Request::is('data-anak') ? 'active bg-primary text-white' : ''}}" href="{{ route('data-anak.index') }}">
               <i class="fad fa-baby {{ !Request::is('data-anak') ? 'text-primary' : ''}}"></i>
@@ -52,15 +58,7 @@
               <i class="fad fa-syringe {{ !Request::is('penerima-imunisasi') ? 'text-primary' : ''}}"></i>
               <span class="nav-link-text">Penerima Imunisasi</span>
             </a>
-          </li>
-          @if (auth()->user()->role == 'User')
-            <li class="nav-item">
-              <a class="nav-link {{ Request::is('daftar-anak') ? 'active bg-primary text-white' : ''}}" href="{{ route('panduan-ibu') }}">
-                <i class="fad fa-baby-carriage {{ !Request::is('daftar-anak') ? 'text-primary' : ''}}"></i>
-                <span class="nav-link-text">Panduan Ibu</span>
-              </a>
-            </li>
-          @endif
+          </li> --}}
         </ul>
       </div>
     </div>

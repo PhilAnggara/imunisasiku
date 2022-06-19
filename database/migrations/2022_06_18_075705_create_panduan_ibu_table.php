@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('panduan_ibu', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->longText('body');
+            $table->string('slug');
+            $table->longText('content');
             $table->timestamps();
             $table->softDeletes();
         });

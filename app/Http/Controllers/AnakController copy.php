@@ -10,10 +10,9 @@ class AnakController extends Controller
 {
     public function index()
     {
-        $anak = auth()->user()->anak;
-        
-        return view('pages.anak', [
-            'anak' => $anak
+        $items = Anak::all();
+        return view('pages.data-anak', [
+            'items' => $items
         ]);
     }
 

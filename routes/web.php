@@ -19,11 +19,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
   Route::get('/', [MainController::class, 'beranda'])->name('beranda');
-  Route::resource('pendaftaran-imunisasi', ImunisasiController::class);
-  Route::resource('jadwal-imunisasi', JadwalImunisasiController::class);
-  Route::resource('data-anak', AnakController::class);
-  Route::get('penerima-imunisasi', [MainController::class, 'penerimaImunisasi'])->name('penerima-imunisasi');
+  Route::get('anak', [AnakController::class, 'index'])->name('anak');
   Route::get('panduan-ibu', [MainController::class, 'panduanIbu'])->name('panduan-ibu');
+  Route::get('panduan-ibu/{item:slug}', [MainController::class, 'article'])->name('article');
+  // Route::resource('pendaftaran-imunisasi', ImunisasiController::class);
+  // Route::resource('jadwal-imunisasi', JadwalImunisasiController::class);
+  // Route::resource('data-anak', AnakController::class);
+  // Route::get('penerima-imunisasi', [MainController::class, 'penerimaImunisasi'])->name('penerima-imunisasi')->middleware('role:Admin');
 });
 
 require __DIR__.'/auth.php';

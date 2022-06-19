@@ -20,8 +20,8 @@ class IbuSeeder extends Seeder
         
         User::create([
             'name' => 'Ici Cantik',
-            'username' => 'rollysahelangi',
-            'email' => 'rollysahelangi@gmail.com',
+            'username' => 'icicantik',
+            'email' => 'icicantik@gmail.com',
             'role' => 'User',
             'password' => Hash::make('Pengguna123')
         ]);

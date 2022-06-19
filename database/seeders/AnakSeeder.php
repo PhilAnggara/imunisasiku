@@ -21,14 +21,14 @@ class AnakSeeder extends Seeder
             'id_kabupaten' => 7172,
             'nama' => 'Priska Manansang',
             'tgl_lahir' => Carbon::now()->subMonth(5)->startOfMonth(),
-            'jenis_kelamin' => 'Laki-laki',
+            'jenis_kelamin' => 'Perempuan',
         ]);
         Anak::create([
             'id_user' => 3,
             'id_kabupaten' => 7171,
             'nama' => 'Sanchez Fernando',
             'tgl_lahir' => Carbon::now()->subMonth(4)->startOfMonth(),
-            'jenis_kelamin' => 'Perempuan',
+            'jenis_kelamin' => 'Laki-laki',
         ]);
     }
 }

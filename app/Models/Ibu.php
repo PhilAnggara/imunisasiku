@@ -25,4 +25,8 @@ class Ibu extends Model
     {
         return $this->belongsTo(User::class, 'id_user', 'id');
     }
+    public function alamat()
+    {
+        return $this->belongsTo(Kelurahan::class, 'id_kelurahan', 'id');
+    }
 }

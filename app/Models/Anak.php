@@ -45,10 +45,14 @@ class Anak extends Model
     }
 
 
+    public function tanggalLahir()
+    {
+        return Carbon::parse($this->tgl_lahir)->isoFormat('D MMMM YYYY');
+    }
     public function umur()
     {
-        $tahun = Carbon::parse($this->tanggal_lahir)->age;
-        $bulan = Carbon::parse($this->tanggal_lahir)->diffInMonths(Carbon::now());
+        $tahun = Carbon::parse($this->tgl_lahir)->age;
+        $bulan = Carbon::parse($this->tgl_lahir)->diffInMonths(Carbon::now());
         
         if ($bulan < 12) {
             return $bulan.' bulan';

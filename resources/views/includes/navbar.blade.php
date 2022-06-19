@@ -12,121 +12,118 @@
             </div>
           </div>
         </li>
-        <li class="nav-item d-sm-none">
-          <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
-            <i class="ni ni-zoom-split-in"></i>
-          </a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <i class="ni ni-bell-55"></i>
-            <span class="badge badge-pill badge-danger">13</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right py-0 overflow-hidden">
-            <div class="px-3 py-3">
-              <h6 class="text-sm text-muted m-0">Anda mempunyai <strong class="text-primary">13</strong> pendaftaran imunisasi baru.</h6>
+        @if (auth()->user()->admin())
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <i class="ni ni-bell-55"></i>
+              <span class="badge badge-pill badge-danger">13</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right py-0 overflow-hidden">
+              <div class="px-3 py-3">
+                <h6 class="text-sm text-muted m-0">Anda mempunyai <strong class="text-primary">13</strong> pendaftaran imunisasi baru.</h6>
+              </div>
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                      <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=2DCEBE&color=fff&bold=true&name=RS"
+                        class="avatar rounded-circle">
+                    </div>
+                    <div class="col ml--2">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <h4 class="mb-0 text-sm">Rolly Sahelangi</h4>
+                        </div>
+                        <div class="text-right text-muted">
+                          <small>2 jam yang lalu</small>
+                        </div>
+                      </div>
+                      <p class="text-sm mb-0">Selasa, 21 Juni 2022</p>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                      <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=2DCEBE&color=fff&bold=true&name=RS"
+                        class="avatar rounded-circle">
+                    </div>
+                    <div class="col ml--2">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <h4 class="mb-0 text-sm">Rolly Sahelangi</h4>
+                        </div>
+                        <div class="text-right text-muted">
+                          <small>2 jam yang lalu</small>
+                        </div>
+                      </div>
+                      <p class="text-sm mb-0">Selasa, 21 Juni 2022</p>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                      <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=2DCEBE&color=fff&bold=true&name=RS"
+                        class="avatar rounded-circle">
+                    </div>
+                    <div class="col ml--2">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <h4 class="mb-0 text-sm">Rolly Sahelangi</h4>
+                        </div>
+                        <div class="text-right text-muted">
+                          <small>2 jam yang lalu</small>
+                        </div>
+                      </div>
+                      <p class="text-sm mb-0">Selasa, 21 Juni 2022</p>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                      <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=2DCEBE&color=fff&bold=true&name=RS"
+                        class="avatar rounded-circle">
+                    </div>
+                    <div class="col ml--2">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <h4 class="mb-0 text-sm">Rolly Sahelangi</h4>
+                        </div>
+                        <div class="text-right text-muted">
+                          <small>2 jam yang lalu</small>
+                        </div>
+                      </div>
+                      <p class="text-sm mb-0">Selasa, 21 Juni 2022</p>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                      <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=2DCEBE&color=fff&bold=true&name=RS"
+                        class="avatar rounded-circle">
+                    </div>
+                    <div class="col ml--2">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <h4 class="mb-0 text-sm">Rolly Sahelangi</h4>
+                        </div>
+                        <div class="text-right text-muted">
+                          <small>2 jam yang lalu</small>
+                        </div>
+                      </div>
+                      <p class="text-sm mb-0">Selasa, 21 Juni 2022</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <a href="{{ route('jadwal-imunisasi.index') }}" class="dropdown-item text-center text-primary font-weight-bold py-3">Lihat semua</a>
             </div>
-            <div class="list-group list-group-flush">
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="row align-items-center">
-                  <div class="col-auto">
-                    <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=2DCEBE&color=fff&bold=true&name=RS"
-                      class="avatar rounded-circle">
-                  </div>
-                  <div class="col ml--2">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div>
-                        <h4 class="mb-0 text-sm">Rolly Sahelangi</h4>
-                      </div>
-                      <div class="text-right text-muted">
-                        <small>2 jam yang lalu</small>
-                      </div>
-                    </div>
-                    <p class="text-sm mb-0">Selasa, 21 Juni 2022</p>
-                  </div>
-                </div>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="row align-items-center">
-                  <div class="col-auto">
-                    <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=2DCEBE&color=fff&bold=true&name=RS"
-                      class="avatar rounded-circle">
-                  </div>
-                  <div class="col ml--2">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div>
-                        <h4 class="mb-0 text-sm">Rolly Sahelangi</h4>
-                      </div>
-                      <div class="text-right text-muted">
-                        <small>2 jam yang lalu</small>
-                      </div>
-                    </div>
-                    <p class="text-sm mb-0">Selasa, 21 Juni 2022</p>
-                  </div>
-                </div>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="row align-items-center">
-                  <div class="col-auto">
-                    <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=2DCEBE&color=fff&bold=true&name=RS"
-                      class="avatar rounded-circle">
-                  </div>
-                  <div class="col ml--2">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div>
-                        <h4 class="mb-0 text-sm">Rolly Sahelangi</h4>
-                      </div>
-                      <div class="text-right text-muted">
-                        <small>2 jam yang lalu</small>
-                      </div>
-                    </div>
-                    <p class="text-sm mb-0">Selasa, 21 Juni 2022</p>
-                  </div>
-                </div>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="row align-items-center">
-                  <div class="col-auto">
-                    <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=2DCEBE&color=fff&bold=true&name=RS"
-                      class="avatar rounded-circle">
-                  </div>
-                  <div class="col ml--2">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div>
-                        <h4 class="mb-0 text-sm">Rolly Sahelangi</h4>
-                      </div>
-                      <div class="text-right text-muted">
-                        <small>2 jam yang lalu</small>
-                      </div>
-                    </div>
-                    <p class="text-sm mb-0">Selasa, 21 Juni 2022</p>
-                  </div>
-                </div>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="row align-items-center">
-                  <div class="col-auto">
-                    <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=2DCEBE&color=fff&bold=true&name=RS"
-                      class="avatar rounded-circle">
-                  </div>
-                  <div class="col ml--2">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div>
-                        <h4 class="mb-0 text-sm">Rolly Sahelangi</h4>
-                      </div>
-                      <div class="text-right text-muted">
-                        <small>2 jam yang lalu</small>
-                      </div>
-                    </div>
-                    <p class="text-sm mb-0">Selasa, 21 Juni 2022</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <a href="{{ route('jadwal-imunisasi.index') }}" class="dropdown-item text-center text-primary font-weight-bold py-3">Lihat semua</a>
-          </div>
-        </li>
+          </li>
+        @endif
       </ul>
       <ul class="navbar-nav align-items-center ml-auto ml-md-0">
         <li class="nav-item dropdown">
