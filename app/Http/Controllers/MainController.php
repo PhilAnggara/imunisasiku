@@ -14,12 +14,17 @@ class MainController extends Controller
 {
     public function beranda()
     {
+        // Cek apakah pengguna adalah Admin, jika iya maka lempar ke beranda admin
         if (auth()->user()->role == 'Admin') {
 
             return view('pages.beranda');
 
+        // Jika pengguna adalah ibu maka lempar ke beranda ibu
         } else {
+
             $anak = auth()->user()->anak;
+
+            // Jika pengguna telah mengisi data anak maka lempar ke beranda ibu
             if ($anak) {
             
                 $bulanIni = Carbon::parse($anak->tgl_lahir)->diffInMonths(Carbon::now()->endOfMonth());
@@ -30,14 +35,11 @@ class MainController extends Controller
                 $lk = collect();
                 $data = ['bb'=> $bb, 'tb' => $tb, 'lk' => $lk];
                 
-                
                 $j = 0;
                 for ($i = 0; $i <= $bulanIni; $i++) { 
-    
                     $namaBulan->push(
                         Carbon::parse($anak->tgl_lahir)->addMonth($i)->isoFormat('MMMM').' ('.$i.' bulan)'
                     );
-    
                     if (array_key_exists($j, $anak->pertumbuhan->all())) {
                         if (Carbon::parse($anak->pertumbuhan[$j]->tanggal)->isoFormat('MMMM') == Carbon::parse($anak->tgl_lahir)->addMonth($i)->isoFormat('MMMM')) {
                             $bb->push($anak->pertumbuhan[$j]->bb);
@@ -50,7 +52,6 @@ class MainController extends Controller
                             $lk->push(null);
                         }
                     }
-    
                 }
                 
                 return view('pages.beranda-ibu', [
@@ -59,6 +60,7 @@ class MainController extends Controller
                     'data' => $data,
                 ]);
                 
+            // Jika pengguna belum mengisi data anak maka lempar ke form anak
             } else {
                 return view('pages.daftar-anak');
             }

@@ -21,7 +21,7 @@
           <h5 class="h3 mb-0">Masukan data diri bayi</h5>
         </div>
         <div class="card-body">
-          <form action="{{ route('daftar-anak') }}" method="post" enctype="multipart/form-data">
+          <form action="{{ route('anak.store') }}" method="post" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group">
@@ -37,21 +37,13 @@
               <label class="form-control-label" for="nama">Nama</label>
               <input type="text" name="nama" class="form-control" id="nama" value="{{ old('nama') }}" autocomplete="off" required>
             </div>
-            
-            <div class="form-group">
-              <label class="form-control-label" for="nama">Tempat Lahir</label>
-              <input type="text" name="nama" class="form-control" id="nama" value="{{ old('nama') }}" autocomplete="off" required>
-            </div>
+
+            @livewire('select-kabupaten')
             
             <div class="form-group">
               <label class="form-control-label" for="tgl_lahir">Tanggal Lahir</label>
-              <input type="date" name="tgl_lahir" class="form-control" id="tgl_lahir" value="{{ old('tgl_lahir') }}" autocomplete="off" required>
+              <input type="date" name="tgl_lahir" class="form-control" id="tgl_lahir" value="{{ old('tgl_lahir') }}" required>
             </div>
-            
-            {{-- <div class="form-group">
-              <label class="form-control-label" for="nama">Nama Anak</label>
-              <input type="text" name="nama" class="form-control" id="nama" value="{{ old('nama') }}" autocomplete="off" required>
-            </div> --}}
 
             <div class="form-group">
               <label class="form-control-label" for="jenis_kelamin">Jenis-kelamin</label>
@@ -61,20 +53,23 @@
                 <option {{ old('jenis_kelamin') == 'Laki-laki' ? 'selected' : '' }}>Perempuan</option>
               </select>
             </div>
+
+            @livewire('select-kelurahan')
             
             <div class="form-group">
-              <label class="form-control-label" for="nama">Alamat</label>
-              <input type="text" name="nama" class="form-control" id="nama" value="{{ old('nama') }}" autocomplete="off" required>
+              <label class="form-control-label" for="nama_suami">Nama Ayah</label>
+              <input type="text" name="nama_suami" class="form-control" id="nama_suami" value="{{ old('nama_suami') }}" autocomplete="off" required>
             </div>
             
             <div class="form-group">
-              <label class="form-control-label" for="nama">Nama Ayah</label>
-              <input type="text" name="nama" class="form-control" id="nama" value="{{ old('nama') }}" autocomplete="off" required>
-            </div>
-            
-            <div class="form-group">
-              <label class="form-control-label" for="nama">No WA</label>
-              <input type="text" name="nama" class="form-control" id="nama" value="{{ old('nama') }}" autocomplete="off" required>
+              <label class="form-control-label" for="no_hp">No WA</label>
+              {{-- <input type="text" name="no_hp" class="form-control" id="no_hp" value="{{ old('no_hp') }}" autocomplete="off" required> --}}
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">+</span>
+                </div>
+                <input type="text" name="no_hp" class="form-control" id="no_hp" value="{{ old('no_hp') }}" autocomplete="off" placeholder="6281234567890" required>
+              </div>
             </div>
 
             <div class="text-right">

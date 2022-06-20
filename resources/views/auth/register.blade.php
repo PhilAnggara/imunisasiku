@@ -36,7 +36,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                   </div>
-                  <input type="text" name="name" class="form-control" placeholder="Nama" value="{{ old('name') }}" autocomplete="off" required>
+                  <input type="text" name="name" class="form-control" placeholder="Nama" value="{{ old('name') }}" autofocus autocomplete="off" required>
                 </div>
                 @error('name')
                   <small class="text-danger">{{ $message }}</small>

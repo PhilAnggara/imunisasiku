@@ -36,7 +36,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                   </div>
-                  <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" autocomplete="off" required>
+                  <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" autofocus autocomplete="off" required>
                 </div>
                 @error('email')
                   <small class="text-danger">Email atau kata sandi yang anda masukan salah</small>

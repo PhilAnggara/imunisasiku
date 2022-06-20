@@ -20,11 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth')->group(function () {
   Route::get('/', [MainController::class, 'beranda'])->name('beranda');
   Route::put('ganti-password', [MainController::class, 'gantiPassword'])->name('ganti-password');
-  
-  Route::get('anak', [AnakController::class, 'index'])->name('anak');
-  Route::post('anak', [AnakController::class, 'store'])->name('daftar-anak');
+
+  Route::resource('anak', AnakController::class);
   Route::post('anak/foto/{id}', [AnakController::class, 'uploadFoto'])->name('upload-foto');
   Route::delete('anak/foto/{id}', [AnakController::class, 'hapusFoto'])->name('hapus-foto');
+  
   Route::get('panduan-ibu', [MainController::class, 'panduanIbu'])->name('panduan-ibu');
   Route::get('panduan-ibu/{item:slug}', [MainController::class, 'article'])->name('article');
   // Route::resource('pendaftaran-imunisasi', ImunisasiController::class);

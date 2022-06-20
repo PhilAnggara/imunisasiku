@@ -30,7 +30,7 @@
           @if (auth()->user()->ibu())
             @if (auth()->user()->anak)
               <li class="nav-item">
-                <a class="nav-link {{ Request::is('anak') ? 'active bg-primary text-white' : ''}}" href="{{ route('anak') }}">
+                <a class="nav-link {{ Request::is('anak') ? 'active bg-primary text-white' : ''}}" href="{{ route('anak.index') }}">
                   <i class="fad fa-baby {{ !Request::is('anak') ? 'text-primary' : ''}}"></i>
                   <span class="nav-link-text">Data Diri Anak</span>
                 </a>
