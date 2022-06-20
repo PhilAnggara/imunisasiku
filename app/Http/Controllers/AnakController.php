@@ -61,6 +61,6 @@ class AnakController extends Controller
     {
         Anak::find($id)->update(['foto' => null]);
 
-        return redirect()->back()->with('success', 'Foto Berhasil Diupload!');
+        return redirect()->back()->with('success', 'Foto Berhasil Dihapus!');
     }
 }

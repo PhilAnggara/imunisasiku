@@ -23,6 +23,7 @@
 	@stack('prepend-script')
 	@include('includes.script')
 	@include('includes.modals.main-modal')
+	@include('sweetalert::alert')
 	@livewireScripts
 	@stack('addon-script')
 
