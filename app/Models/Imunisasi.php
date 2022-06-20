@@ -32,8 +32,40 @@ class Imunisasi extends Model
     }
 
     
-    public function tanggal()
+    public function tanggalDijadwalkan()
     {
-        return Carbon::parse($this->tanggal_imunisasi)->isoFormat('D MMM YYYY');
+        if ($this->tanggal_dijadwalkan) {
+            return Carbon::parse($this->attributes['tanggal_dijadwalkan'])->isoFormat('D MMMM YYYY');
+        } else {
+            return 0;
+        }
+    }
+    public function tanggalImunisasi()
+    {
+        if ($this->tanggal_imunisasi) {
+            return Carbon::parse($this->attributes['tanggal_imunisasi'])->isoFormat('D MMMM YYYY');
+        } else {
+            return 'Belum divaksin';
+        }
+    }
+    public function cekStatus()
+    {
+        if ($this->tanggal_imunisasi) {
+            if ($this->tanggal_imunisasi <= $this->tanggal_dijadwalkan) {
+                return 1;
+                // Selesai
+            } else {
+                return 2;
+                // Terlambat imunisasi
+            }
+        } else {
+            if (Carbon::today() > $this->tanggal_dijadwalkan) {
+                return 3;
+                // Belum diimunisasi
+            } else {
+                return 0;
+                // Menunggu
+            }
+        }
     }
 }

@@ -1,0 +1,28 @@
+.my-image-preview {
+  width: 100%;
+  min-height: 200px;
+  cursor: pointer;
+  border: 2px solid #dddddd;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #cccccc;
+  transition: background-color 0.2s;
+}
+.my-image-preview:hover {
+  background-color: #f0f0f0;
+  color: #cccccc;
+}
+.my-image-preview .mip-image {
+  display: none;
+  width: 100%;
+}
+.my-image-preview .mip-default-text {
+  font-weight: 500;
+}
+.my-image-preview .mip-input {
+  display: none;
+}

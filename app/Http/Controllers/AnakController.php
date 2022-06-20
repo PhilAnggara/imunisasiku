@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AnakRequest;
+use App\Http\Requests\UploadRequest;
 use App\Models\Anak;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Return_;
@@ -22,7 +24,7 @@ class AnakController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(AnakRequest $request)
     {
         //
     }
@@ -37,13 +39,28 @@ class AnakController extends Controller
         //
     }
 
-    public function update(Request $request, $id)
+    public function update(AnakRequest $request, $id)
     {
-        //
+        // 
     }
 
     public function destroy($id)
     {
         return 'Test';
+    }
+
+    public function uploadFoto(UploadRequest $request, $id)
+    {
+        $foto = $request->file('foto')->store('images/anak', 'public');
+        Anak::find($id)->update(['foto' => $foto]);
+
+        return redirect()->back()->with('success', 'Foto Berhasil Diupload!');
+    }
+    
+    public function hapusFoto($id)
+    {
+        Anak::find($id)->update(['foto' => null]);
+
+        return redirect()->back()->with('success', 'Foto Berhasil Diupload!');
     }
 }

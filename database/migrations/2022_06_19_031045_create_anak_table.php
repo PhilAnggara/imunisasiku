@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('nama');
             $table->date('tgl_lahir');
             $table->string('jenis_kelamin');
+            $table->text('foto')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -9,12 +9,12 @@
         <div class="col-lg-6 col-7">
           <h1 class="text-white d-inline-block mb-0">Data Anak</h1>
         </div>
-        <div class="col-lg-6 col-5 text-right">
+        {{-- <div class="col-lg-6 col-5 text-right">
           <button type="button" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#tambahData">
             <i class="fas fa-plus"></i>
             Tambah Data
           </button>
-        </div>
+        </div> --}}
       </div>
     </div>
   </div>
@@ -24,11 +24,29 @@
     <div class="row justify-content-md-center">
       <div class="col-lg-4">
         <div class="card">
-          <img class="card-img-top" src="{{ url('frontend/images/baby-placeholder.jpg') }}">
-          <button type="button" class="btn btn-icon btn-sm btn-link px-0">
-            <i class="fal fa-images"></i>
-            Upload Foto
-          </button>
+          @if ($anak->foto)
+            <img class="card-img-top" src="{{ Storage::url($anak->foto) }}">
+            <div class="d-inline text-center">
+              <button type="button" class="btn btn-icon btn-sm btn-link text-dark px-0" onclick="hapusData({{ $anak->id }},' foto ini')">
+                <i class="fas fa-trash"></i>
+                Hapus Foto
+              </button>
+              <button type="button" class="btn btn-icon btn-sm btn-link px-0" data-toggle="modal" data-target="#uploadModal">
+                <i class="fal fa-images"></i>
+                Ganti Foto
+              </button>
+              <form action="{{ route('hapus-foto', $anak->id) }}" id="hapus-{{ $anak->id }}" method="POST">
+                @method('delete')
+                @csrf
+              </form>
+            </div>
+          @else
+            <img class="card-img-top" src="{{ url('frontend/images/baby-placeholder.jpg') }}">
+            <button type="button" class="btn btn-icon btn-sm btn-link px-0" data-toggle="modal" data-target="#uploadModal">
+              <i class="fal fa-images"></i>
+              Upload Foto
+            </button>
+          @endif
           <div class="card-body">
             <h5 class="h2 card-title mb-0">
               {{ $anak->nama }}
@@ -87,7 +105,7 @@
                 </tbody>
               </table>
             </div>
-            <button type="button" class="btn btn-icon btn-outline-info btn-sm">
+            <button type="button" class="btn btn-icon btn-outline-info btn-sm" data-toggle="modal" data-target="#editData">
               <i class="fas fa-user-pen"></i>
               Edit Data
             </button>
@@ -103,9 +121,23 @@
             <div class="timeline timeline-one-side" data-timeline-content="axis" data-timeline-axis-style="dashed">
               @foreach ($anak->imunisasi as $imunisasi)
                 <div class="timeline-block">
-                  <span class="timeline-step badge-success">
-                    <i class="fad fa-check"></i>
-                  </span>
+                  @if ($imunisasi->cekStatus() == 1)
+                    <span class="timeline-step badge-success" data-toggle="tooltip" title="{{ $imunisasi->tanggalImunisasi() }}">
+                      <i class="fad fa-check"></i>
+                    </span>
+                  @elseif ($imunisasi->cekStatus() == 2)
+                    <span class="timeline-step badge-warning" data-toggle="tooltip" title="{{ $imunisasi->tanggalImunisasi() }}">
+                      <i class="fad fa-check"></i>
+                    </span>
+                  @elseif ($imunisasi->cekStatus() == 3)
+                    <span class="timeline-step badge-danger" data-toggle="tooltip" title="{{ $imunisasi->tanggalImunisasi() }}">
+                      <i class="fad fa-calendar-xmark"></i>
+                    </span>
+                  @else
+                    <span class="timeline-step badge-secondary" data-toggle="tooltip" title="{{ $imunisasi->tanggalImunisasi() }}">
+                      <i class="fad fa-loader"></i>
+                    </span>
+                  @endif
                   <div class="timeline-content">
                     <div class="d-flex justify-content-between pt-1">
                       <div>
@@ -114,7 +146,7 @@
                       <div class="text-right">
                         <small class="text-muted">
                           <i class="fad fa-calendar-days"></i>
-                          {{ $imunisasi->tanggal() }}
+                          {{ $imunisasi->tanggalDijadwalkan() }}
                         </small>
                       </div>
                     </div>
@@ -131,4 +163,12 @@
       
   @endif
 </div>
+@include('includes.modals.anak-modal')
 @endsection
+
+@push('addon-style')
+<link rel="stylesheet" href="{{ url('frontend/vendors/myImgPreview/main.css') }}">
+@endpush
+@push('addon-script')
+<script src="{{ url('frontend/vendors/myImgPreview/main.js') }}"></script>
+@endpush
