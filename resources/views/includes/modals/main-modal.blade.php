@@ -34,28 +34,38 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <form action="{{ route('ganti-password') }}" method="post">
+      <form action="{{ route('ganti-password') }}" method="post">
+        <div class="modal-body">
           @method('put')
           @csrf
           <div class="form-group">
             <label class="form-control-label" for="current_password">Kata Sandi Sekarang</label>
-            <input type="password" class="form-control" id="current_password" name="current_password">
+            <input type="password" class="form-control @error('current_password') is-invalid @enderror" id="current_password" name="current_password" required>
+            @error('current_password')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
           </div>
           <div class="form-group">
             <label class="form-control-label" for="password">Kata Sandi Baru</label>
-            <input type="password" class="form-control" id="password" name="password">
+            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" required>
+            @error('password')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
           </div>
           <div class="form-group">
             <label class="form-control-label" for="password_confirmation">Konfirmasi Kata Sandi Baru</label>
-            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
+            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-        <button type="submit" class="btn btn-primary">Simpan</button>
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -80,3 +90,11 @@
     </div>
   </div>
 </div>
+
+
+@if ($errors->has('password') || $errors->has('current_password'))
+  <script>
+    var gantiPasswordModal = new bootstrap.Modal(document.getElementById('gantiPasswordModal'));
+    gantiPasswordModal.show();
+  </script>
+@endif

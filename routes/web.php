@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth')->group(function () {
   Route::get('/', [MainController::class, 'beranda'])->name('beranda');
   Route::put('ganti-password', [MainController::class, 'gantiPassword'])->name('ganti-password');
+  
   Route::get('anak', [AnakController::class, 'index'])->name('anak');
   Route::post('anak', [AnakController::class, 'store'])->name('daftar-anak');
   Route::post('anak/foto/{id}', [AnakController::class, 'uploadFoto'])->name('upload-foto');
