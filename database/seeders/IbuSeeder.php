@@ -40,7 +40,7 @@ class IbuSeeder extends Seeder
             'no_hp' => '6285156457378',
         ]);
         Ibu::create([
-            'id_user' => 2,
+            'id_user' => 3,
             'id_kelurahan' => 7171021002,
             'nama_suami' => 'Rudolfo Sombouwadil',
             'no_hp' => '6282187242572',

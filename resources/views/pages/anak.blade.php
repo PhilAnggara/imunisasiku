@@ -87,7 +87,7 @@
                 </tbody>
               </table>
             </div>
-            <button type="button" class="btn btn-icon btn-info btn-sm">
+            <button type="button" class="btn btn-icon btn-outline-info btn-sm">
               <i class="fas fa-user-pen"></i>
               Edit Data
             </button>
