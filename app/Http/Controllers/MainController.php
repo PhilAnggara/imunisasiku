@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PanduanIbu;
 use Carbon\Carbon;
+use App\Models\PanduanIbu;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class MainController extends Controller
 {
@@ -15,46 +19,49 @@ class MainController extends Controller
             return view('pages.beranda');
 
         } else {
-            
             $anak = auth()->user()->anak;
-            $bulanIni = Carbon::parse($anak->tgl_lahir)->diffInMonths(Carbon::now()->endOfMonth());
-
-            $namaBulan = collect();
-            $bb = collect();
-            $tb = collect();
-            $lk = collect();
-            $data = ['bb'=> $bb, 'tb' => $tb, 'lk' => $lk];
+            if ($anak) {
             
-            
-            $j = 0;
-            for ($i = 0; $i <= $bulanIni; $i++) { 
-
-                $namaBulan->push(
-                    Carbon::parse($anak->tgl_lahir)->addMonth($i)->isoFormat('MMMM').' ('.$i.' bulan)'
-                );
-
-                if (array_key_exists($j, $anak->pertumbuhan->all())) {
-                    if (Carbon::parse($anak->pertumbuhan[$j]->tanggal)->isoFormat('MMMM') == Carbon::parse($anak->tgl_lahir)->addMonth($i)->isoFormat('MMMM')) {
-                        $bb->push($anak->pertumbuhan[$j]->bb);
-                        $tb->push($anak->pertumbuhan[$j]->tb);
-                        $lk->push($anak->pertumbuhan[$j]->lk);
-                        $j++;
-                    } else {
-                        $bb->push(null);
-                        $tb->push(null);
-                        $lk->push(null);
+                $bulanIni = Carbon::parse($anak->tgl_lahir)->diffInMonths(Carbon::now()->endOfMonth());
+    
+                $namaBulan = collect();
+                $bb = collect();
+                $tb = collect();
+                $lk = collect();
+                $data = ['bb'=> $bb, 'tb' => $tb, 'lk' => $lk];
+                
+                
+                $j = 0;
+                for ($i = 0; $i <= $bulanIni; $i++) { 
+    
+                    $namaBulan->push(
+                        Carbon::parse($anak->tgl_lahir)->addMonth($i)->isoFormat('MMMM').' ('.$i.' bulan)'
+                    );
+    
+                    if (array_key_exists($j, $anak->pertumbuhan->all())) {
+                        if (Carbon::parse($anak->pertumbuhan[$j]->tanggal)->isoFormat('MMMM') == Carbon::parse($anak->tgl_lahir)->addMonth($i)->isoFormat('MMMM')) {
+                            $bb->push($anak->pertumbuhan[$j]->bb);
+                            $tb->push($anak->pertumbuhan[$j]->tb);
+                            $lk->push($anak->pertumbuhan[$j]->lk);
+                            $j++;
+                        } else {
+                            $bb->push(null);
+                            $tb->push(null);
+                            $lk->push(null);
+                        }
                     }
+    
                 }
-
+                
+                return view('pages.beranda-ibu', [
+                    'anak' => $anak,
+                    'namaBulan' => $namaBulan,
+                    'data' => $data,
+                ]);
+                
+            } else {
+                return view('pages.daftar-anak');
             }
-
-
-
-            return view('pages.beranda-ibu', [
-                'anak' => $anak,
-                'namaBulan' => $namaBulan,
-                'data' => $data,
-            ]);
         }
     }
 
@@ -76,6 +83,26 @@ class MainController extends Controller
         // $item = PanduanIbu::where('slug', $slug)->first();
         return view('pages.article', [
             'item' => $item
+        ]);
+    }
+
+    public function gantiPassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => ['required'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        if (Hash::check($request->current_password, auth()->user()->password)) {
+            $user = User::find(auth()->user()->id);
+            $user->password = Hash::make($request->password);
+            $user->save();
+
+            return redirect()->back()->with('success', 'Kata sandi anda berhasil diubah');
+        }
+
+        throw ValidationException::withMessages([
+            'current_password' => 'Kata sandi anda salah'
         ]);
     }
 }

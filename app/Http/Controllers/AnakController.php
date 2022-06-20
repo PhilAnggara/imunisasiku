@@ -26,7 +26,14 @@ class AnakController extends Controller
 
     public function store(AnakRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['id_user'] = auth()->user()->id;
+
+        dd($data);
+        
+        Anak::create($data);
+
+        return redirect()->back()->with('success', 'Data berhasil disimpan!');
     }
 
     public function show($id)

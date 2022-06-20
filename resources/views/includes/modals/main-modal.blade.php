@@ -35,7 +35,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="">
+        <form action="{{ route('ganti-password') }}" method="post">
+          @method('put')
+          @csrf
           <div class="form-group">
             <label class="form-control-label" for="current_password">Kata Sandi Sekarang</label>
             <input type="password" class="form-control" id="current_password" name="current_password">

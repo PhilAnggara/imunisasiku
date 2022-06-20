@@ -64,7 +64,7 @@
         </div>
         <div class="row mt-3">
           <div class="col text-center">
-            {{-- <a href="{{ route('register') }}" class="text-light"><small>Buat akun baru</small></a> --}}
+            <a href="{{ route('register') }}" class="text-dark"><small>Belum punya akun?</small></a>
           </div>
         </div>
       </div>
