@@ -70,6 +70,48 @@
   </div>
 </div>
 
+<div class="modal fade" id="tambahDataPertumbuhanModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pertumbuhan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="{{ route('tambah-data-pertumbuhan') }}" method="POST">
+        @csrf
+        <div class="modal-body">
+        
+          <div class="form-group">
+            <label class="form-control-label" for="bb">Berat Badan (kg)</label>
+            <input type="number" name="bb" class="form-control" id="bb" step="0.1" required>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" for="tb">Tinggi Badan (cm)</label>
+            <input type="number" name="tb" class="form-control" id="tb" step="0.1" required>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" for="lk">Lingkar Kepala (cm)</label>
+            <input type="number" name="lk" class="form-control" id="lk" step="0.1" required>
+          </div>
+
+          {{-- <div class="form-group">
+            <label class="form-control-label" for="tanggal">Tanggal</label>
+            <input type="date" name="tanggal" class="form-control" id="tanggal" value="{{ Carbon\Carbon::parse(Carbon\Carbon::today())->format('Y-m-d') }}" required>
+          </div> --}}
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

@@ -62,4 +62,18 @@ class Anak extends Model
             return $tahun.' tahun '.$bulan.' bulan';
         }
     }
+    public function cekDataPertumbuhan()
+    {
+        if ($this->pertumbuhan->count()) {
+            if (Carbon::parse($this->pertumbuhan->last()->tanggal)->endOfMonth() >= Carbon::now()->endOfMonth()) {
+                return true;
+            } else {
+                return false;
+            }
+            
+        } else {
+            return false;
+        }
+        
+    }
 }

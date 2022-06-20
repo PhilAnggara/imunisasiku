@@ -6,6 +6,8 @@ use App\Http\Requests\AnakRequest;
 use App\Http\Requests\UploadRequest;
 use App\Models\Anak;
 use App\Models\Ibu;
+use App\Models\RiwayatPertumbuhan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Return_;
 
@@ -81,5 +83,25 @@ class AnakController extends Controller
         Anak::find($id)->update(['foto' => null]);
 
         return redirect()->back()->with('success', 'Foto Berhasil Dihapus!');
+    }
+
+    public function pertumbuhan(Request $request)
+    {
+        $request->validate([
+            'bb' => ['required'],
+            'tb' => ['required'],
+            'lk' => ['required'],
+            // 'tanggal' => ['required', 'date'],
+        ]);
+
+        RiwayatPertumbuhan::create([
+            'id_anak' => auth()->user()->anak->id,
+            'bb' => $request->bb,
+            'tb' => $request->tb,
+            'lk' => $request->lk,
+            'tanggal' => Carbon::today(),
+        ]);
+
+        return redirect()->back()->with('success', 'Data Berhasil Ditambahkan!');
     }
 }

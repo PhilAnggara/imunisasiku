@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function () {
   Route::put('ganti-password', [MainController::class, 'gantiPassword'])->name('ganti-password');
 
   Route::resource('anak', AnakController::class);
+  Route::post('anak/pertumbuhan', [AnakController::class, 'pertumbuhan'])->name('tambah-data-pertumbuhan');
   Route::post('anak/foto/{id}', [AnakController::class, 'uploadFoto'])->name('upload-foto');
   Route::delete('anak/foto/{id}', [AnakController::class, 'hapusFoto'])->name('hapus-foto');
   
