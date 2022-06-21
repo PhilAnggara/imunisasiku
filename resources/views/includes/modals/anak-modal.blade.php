@@ -41,12 +41,46 @@
         </button>
       </div>
       <form action="{{ route('anak.update', $anak->id) }}" method="post">
+        @method('put')
+        @csrf
         <div class="modal-body">
           
-            
           <div class="form-group">
             <label class="form-control-label" for="nama">Nama</label>
-            <input type="text" name="nama" class="form-control" id="nama" value="{{ old('nama') }}" autocomplete="off" required>
+            <input type="text" name="nama" class="form-control" id="nama" value="{{ $anak->nama }}" autocomplete="off" required>
+          </div>
+
+          @livewire('select-kabupaten', ['selectedKabupaten' => $anak->tempatLahir])
+          
+          <div class="form-group">
+            <label class="form-control-label" for="tgl_lahir">Tanggal Lahir</label>
+            <input type="date" name="tgl_lahir" class="form-control" id="tgl_lahir" value="{{ $anak->tgl_lahir }}" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-control-label" for="jenis_kelamin">Jenis-kelamin</label>
+            <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
+              <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
+              <option {{ $anak->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+              <option {{ $anak->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+            </select>
+          </div>
+
+          @livewire('select-kelurahan', ['selectedKelurahan' => $anak->ibu->detail->alamat])
+          
+          <div class="form-group">
+            <label class="form-control-label" for="nama_suami">Nama Ayah</label>
+            <input type="text" name="nama_suami" class="form-control" id="nama_suami" value="{{ $anak->ibu->detail->nama_suami }}" autocomplete="off" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-control-label" for="no_hp">No WA</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">+62</span>
+              </div>
+              <input type="text" name="no_hp" class="form-control" id="no_hp" value="{{ $anak->ibu->detail->no_hp }}" autocomplete="off" placeholder="81234567890" required>
+            </div>
           </div>
           
         </div>

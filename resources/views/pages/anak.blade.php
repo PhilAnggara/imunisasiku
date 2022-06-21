@@ -96,9 +96,9 @@
                     <td>WhatsApp</td>
                     <td>:</td>
                     <td>
-                      <a href="https://wa.me/{{ $anak->ibu->detail->no_hp }}" class="btn btn-icon btn-success btn-sm" target="_blank">
+                      <a href="https://wa.me/62{{ $anak->ibu->detail->no_hp }}" class="btn btn-icon btn-success btn-sm" target="_blank">
                         <i class="fab fa-whatsapp"></i>
-                        +{{ $anak->ibu->detail->no_hp }}
+                        +62{{ $anak->ibu->detail->no_hp }}
                       </a>
                     </td>
                   </tr>

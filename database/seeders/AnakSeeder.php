@@ -30,5 +30,12 @@ class AnakSeeder extends Seeder
             'tgl_lahir' => Carbon::now()->subMonth(4)->startOfMonth(),
             'jenis_kelamin' => 'Laki-laki',
         ]);
+        Anak::create([
+            'id_user' => 4,
+            'id_kabupaten' => 3216,
+            'nama' => 'Willy Angow',
+            'tgl_lahir' => Carbon::now()->startOfMonth(),
+            'jenis_kelamin' => 'Laki-laki',
+        ]);
     }
 }

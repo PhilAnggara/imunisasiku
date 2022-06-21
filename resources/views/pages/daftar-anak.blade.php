@@ -50,7 +50,7 @@
               <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
                 <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
                 <option {{ old('jenis_kelamin') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
-                <option {{ old('jenis_kelamin') == 'Laki-laki' ? 'selected' : '' }}>Perempuan</option>
+                <option {{ old('jenis_kelamin') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
               </select>
             </div>
 
@@ -66,9 +66,9 @@
               {{-- <input type="text" name="no_hp" class="form-control" id="no_hp" value="{{ old('no_hp') }}" autocomplete="off" required> --}}
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text">+</span>
+                  <span class="input-group-text">+62</span>
                 </div>
-                <input type="text" name="no_hp" class="form-control" id="no_hp" value="{{ old('no_hp') }}" autocomplete="off" placeholder="6281234567890" required>
+                <input type="text" name="no_hp" class="form-control" id="no_hp" value="{{ old('no_hp') }}" autocomplete="off" placeholder="81234567890" required>
               </div>
             </div>
 

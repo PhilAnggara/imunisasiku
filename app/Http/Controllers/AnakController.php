@@ -62,7 +62,20 @@ class AnakController extends Controller
 
     public function update(AnakRequest $request, $id)
     {
-        // 
+        $data = $request->validate([
+            'nama' => ['required', 'string', 'max:255'],
+            'id_kabupaten' => ['required'],
+            'tgl_lahir' => ['required', 'date'],
+            'jenis_kelamin' => ['required', 'string', 'max:255'],
+            'id_kelurahan' => ['required'],
+            'nama_suami' => ['required', 'string', 'max:255'],
+            'no_hp' => ['required', 'string', 'max:255'],
+        ]);
+        
+        auth()->user()->anak->update($data);
+        auth()->user()->detail->update($data);
+
+        return redirect()->back()->with('success', 'Data berhasil disimpan!');
     }
 
     public function destroy($id)

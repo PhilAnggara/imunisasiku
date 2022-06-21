@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Imunisasiku | Panduan Anak')
+@section('title', 'Imunisasiku | Panduan Ibu')
 
 @section('content')
 <div class="header bg-primary pb-6">
