@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
   Route::delete('panduan-ibu/{id}', [PanduanIbuController::class, 'destroy'])->name('hapus-article');
 
   Route::resource('data-anak', DataAnakController::class);
+  Route::resource('imunisasi', ImunisasiController::class);
   
   // Route::resource('pendaftaran-imunisasi', ImunisasiController::class);
   // Route::resource('jadwal-imunisasi', JadwalImunisasiController::class);

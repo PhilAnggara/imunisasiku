@@ -37,7 +37,10 @@
                   <td>{{ $item->nama }}</td>
                   <td>{{ Str::title($item->tempatLahir->nama) }}, {{ $item->tanggalLahir() }}</td>
                   <td>{{ $item->umur() }}</td>
-                  <td>{{ $item->ibu->detail->alamat->nama }}</td>
+                  <td>
+                    <i class="fas fa-location-dot text-danger"></i>
+                    {{ $item->ibu->detail->alamat->nama }}
+                  </td>
                   <td>{{ $item->ibu->name }}</td>
                   <td>
                     <a href="https://wa.me/62{{ $item->ibu->detail->no_hp }}" class="btn btn-icon btn-success btn-sm" target="_blank">

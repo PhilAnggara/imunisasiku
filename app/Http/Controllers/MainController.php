@@ -17,7 +17,10 @@ class MainController extends Controller
         // Cek apakah pengguna adalah Admin, jika iya maka lempar ke beranda admin
         if (auth()->user()->role == 'Admin') {
 
-            return view('pages.beranda');
+            $pengguna = User::where('role','User')->count();
+            return view('pages.beranda', [
+                'pengguna' => $pengguna
+            ]);
 
         // Jika pengguna adalah ibu maka lempar ke beranda ibu
         } else {

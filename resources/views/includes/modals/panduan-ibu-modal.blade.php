@@ -18,7 +18,7 @@
           </div>
           <div class="form-group">
             <label class="form-control-label" for="content">Content</label>
-            <input type="text" name="content" class="form-control" id="content" required>
+            <textarea class="form-control" name="content" id="content" rows="10" required></textarea>
           </div>
 
         </div>

@@ -42,6 +42,12 @@
             </li>
           @elseif (auth()->user()->admin())
             <li class="nav-item">
+              <a class="nav-link {{ Request::is('imunisasi') ? 'active bg-primary text-white' : ''}}" href="{{ route('imunisasi.index') }}">
+                <i class="fad fa-syringe {{ !Request::is('imunisasi') ? 'text-primary' : ''}}"></i>
+                <span class="nav-link-text">Imunisasi</span>
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link {{ Request::is('data-anak') ? 'active bg-primary text-white' : ''}}" href="{{ route('data-anak.index') }}">
                 <i class="fad fa-baby {{ !Request::is('data-anak') ? 'text-primary' : ''}}"></i>
                 <span class="nav-link-text">Data Anak</span>
