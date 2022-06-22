@@ -72,22 +72,6 @@ class MainController extends Controller
         return view('pages.penerima-imunisasi');
     }
 
-    public function panduanIbu()
-    {
-        $items = PanduanIbu::all()->sortDesc();
-        return view('pages.panduan-ibu', [
-            'items' => $items
-        ]);
-    }
-
-    public function article(PanduanIbu $item)
-    {
-        // $item = PanduanIbu::where('slug', $slug)->first();
-        return view('pages.article', [
-            'item' => $item
-        ]);
-    }
-
     public function gantiPassword(Request $request)
     {
         $request->validate([

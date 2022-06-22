@@ -27,32 +27,37 @@
         </ul>
         <hr class="my-3">
         <ul class="navbar-nav">
-          @if (auth()->user()->ibu())
-            @if (auth()->user()->anak)
-              <li class="nav-item">
-                <a class="nav-link {{ Request::is('anak') ? 'active bg-primary text-white' : ''}}" href="{{ route('anak.index') }}">
-                  <i class="fad fa-baby {{ !Request::is('anak') ? 'text-primary' : ''}}"></i>
-                  <span class="nav-link-text">Data Diri Anak</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link {{ Request::is('panduan-ibu*') ? 'active bg-primary text-white' : ''}}" href="{{ route('panduan-ibu') }}">
-                  <i class="fad fa-baby-carriage {{ !Request::is('panduan-ibu*') ? 'text-primary' : ''}}"></i>
-                  <span class="nav-link-text">Panduan Ibu</span>
-                </a>
-              </li>
-            @endif
+          @if (auth()->user()->ibu() && auth()->user()->anak)
+            <li class="nav-item">
+              <a class="nav-link {{ Request::is('anak') ? 'active bg-primary text-white' : ''}}" href="{{ route('anak.index') }}">
+                <i class="fad fa-baby {{ !Request::is('anak') ? 'text-primary' : ''}}"></i>
+                <span class="nav-link-text">Data Diri Anak</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{ Request::is('panduan-ibu*') ? 'active bg-primary text-white' : ''}}" href="{{ route('panduan-ibu') }}">
+                <i class="fad fa-baby-carriage {{ !Request::is('panduan-ibu*') ? 'text-primary' : ''}}"></i>
+                <span class="nav-link-text">Panduan Ibu</span>
+              </a>
+            </li>
+          @elseif (auth()->user()->admin())
+            <li class="nav-item">
+              <a class="nav-link {{ Request::is('data-anak') ? 'active bg-primary text-white' : ''}}" href="{{ route('data-anak.index') }}">
+                <i class="fad fa-baby {{ !Request::is('data-anak') ? 'text-primary' : ''}}"></i>
+                <span class="nav-link-text">Data Anak</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{ Request::is('panduan-ibu*') ? 'active bg-primary text-white' : ''}}" href="{{ route('panduan-ibu') }}">
+                <i class="fad fa-baby-carriage {{ !Request::is('panduan-ibu*') ? 'text-primary' : ''}}"></i>
+                <span class="nav-link-text">Panduan Ibu</span>
+              </a>
+            </li>
           @endif
           {{-- <li class="nav-item">
             <a class="nav-link {{ Request::is('jadwal-imunisasi') ? 'active bg-primary text-white' : ''}}" href="{{ route('jadwal-imunisasi.index') }}">
               <i class="fad fa-calendar-days {{ !Request::is('jadwal-imunisasi') ? 'text-primary' : ''}}"></i>
               <span class="nav-link-text">Jawdal Imunisasi</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('data-anak') ? 'active bg-primary text-white' : ''}}" href="{{ route('data-anak.index') }}">
-              <i class="fad fa-baby {{ !Request::is('data-anak') ? 'text-primary' : ''}}"></i>
-              <span class="nav-link-text">Data Anak</span>
             </a>
           </li>
           <li class="nav-item">

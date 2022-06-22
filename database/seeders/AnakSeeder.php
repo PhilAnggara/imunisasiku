@@ -22,6 +22,7 @@ class AnakSeeder extends Seeder
             'nama' => 'Priska Manansang',
             'tgl_lahir' => Carbon::now()->subMonth(5)->startOfMonth(),
             'jenis_kelamin' => 'Perempuan',
+            'foto' => 'example/bayi-1.jpg'
         ]);
         Anak::create([
             'id_user' => 3,

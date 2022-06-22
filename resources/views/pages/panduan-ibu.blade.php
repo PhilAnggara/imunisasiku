@@ -9,6 +9,14 @@
         <div class="col-lg-6 col-7">
           <h1 class="text-white d-inline-block mb-0">Panduan Ibu</h1>
         </div>
+        @if (auth()->user()->admin())
+          <div class="col-lg-6 col-5 text-right">
+            <button type="button" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#buatArtikelModal">
+              <i class="fas fa-plus"></i>
+              Buat Artikel
+            </button>
+          </div>
+        @endif
       </div>
     </div>
   </div>
@@ -20,9 +28,24 @@
       @foreach ($items as $item)
         <div class="card mb-4">
           <div class="card-header">
-            <a href="{{ route('article', $item->slug) }}">
-              <h2 class="mb-0">{{ $item->title }}</h2>
-            </a>
+            <div class="row align-items-center">
+              <div class="col-8">
+                <a href="{{ route('article', $item->slug) }}">
+                  <h2 class="mb-0">{{ $item->title }}</h2>
+                </a>
+              </div>
+              @if (auth()->user()->admin())
+                <div class="col-4 text-right">
+                  <button type="button" class="btn btn-sm table-action table-action-delete" onclick="hapusData({{ $item->id }},'{{ $item->title }}')">
+                    <i class="fas fa-trash" data-toggle="tooltip" title="Hapus Artikel"></i>
+                  </button>
+                  <form action="{{ route('hapus-article', $item->id) }}" id="hapus-{{ $item->id }}" method="POST">
+                    @method('delete')
+                    @csrf
+                  </form>
+                </div>
+              @endif
+            </div>
           </div>
           <div class="card-body">
             {!! Str::limit($item->content, 500, '....') !!}
@@ -34,4 +57,5 @@
     </div>
   </div>
 </div>
+@include('includes.modals.panduan-ibu-modal')
 @endsection

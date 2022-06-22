@@ -119,7 +119,7 @@
           </div>
           <div class="card-body">
             <div class="timeline timeline-one-side" data-timeline-content="axis" data-timeline-axis-style="dashed">
-              @foreach ($anak->imunisasi as $imunisasi)
+              @forelse ($anak->imunisasi as $imunisasi)
                 <div class="timeline-block">
                   @if ($imunisasi->cekStatus() == 1)
                     <span class="timeline-step badge-success" data-toggle="tooltip" title="{{ $imunisasi->tanggalImunisasi() }}">
@@ -153,7 +153,13 @@
                     <h6 class="text-sm mt-1 mb-0">{{ $imunisasi->tenaga_medis }}</h6>
                   </div>
                 </div>
-              @endforeach
+              @empty
+                <div class="py-5 text-center">
+                  <h5 class="h3 title">
+                    <small class="h4 font-weight-light text-muted">Belum pernah diimunisasi</small>
+                  </h5>
+                </div>
+              @endforelse
             </div>
           </div>
         </div>

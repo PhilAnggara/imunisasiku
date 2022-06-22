@@ -9,12 +9,6 @@
         <div class="col-lg-6 col-7">
           <h1 class="text-white d-inline-block mb-0">Data Anak</h1>
         </div>
-        <div class="col-lg-6 col-5 text-right">
-          <button type="button" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#tambahData">
-            <i class="fas fa-plus"></i>
-            Tambah Data
-          </button>
-        </div>
       </div>
     </div>
   </div>
@@ -28,29 +22,33 @@
           <table class="table table-flush text-center" id="datatable-basic">
             <thead class="thead-light">
               <tr>
-                <th>No</th>
                 <th>Nama Anak</th>
+                <th>Tempat/Tanggal Lahir</th>
                 <th>Umur</th>
                 <th>Alamat</th>
-                <th>Jadwal</th>
+                <th>Nama Ibu</th>
+                <th>No WA</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
               @foreach ($items as $item)
                 <tr>
-                  <td>{{ $loop->iteration }}</td>
                   <td>{{ $item->nama }}</td>
+                  <td>{{ Str::title($item->tempatLahir->nama) }}, {{ $item->tanggalLahir() }}</td>
                   <td>{{ $item->umur() }}</td>
-                  <td>{{ $item->alamat->nama }}</td>
-                  <td>{{ $item->getJadwal() }}</td>
+                  <td>{{ $item->ibu->detail->alamat->nama }}</td>
+                  <td>{{ $item->ibu->name }}</td>
+                  <td>
+                    <a href="https://wa.me/62{{ $item->ibu->detail->no_hp }}" class="btn btn-icon btn-success btn-sm" target="_blank">
+                      <i class="fab fa-whatsapp"></i>
+                      +62{{ $item->ibu->detail->no_hp }}
+                    </a>
+                  </td>
                   <td>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                      <button type="button" class="btn btn-sm table-action" data-toggle="modal" data-target="#exampleModal">
+                      <button type="button" class="btn btn-sm table-action" data-toggle="modal" data-target="#detailModal-{{ $item->id }}">
                         <i class="fas fa-eye" data-toggle="tooltip" title="Detail"></i>
-                      </button>
-                      <button type="button" class="btn btn-sm table-action" data-toggle="modal" data-target="#exampleModal">
-                        <i class="fas fa-user-edit" data-toggle="tooltip" title="Detail"></i>
                       </button>
                       <button type="button" class="btn btn-sm table-action table-action-delete" onclick="hapusData({{ $item->id }},'{{ $item->nama }}')">
                         <i class="fas fa-trash" data-toggle="tooltip" title="Hapus"></i>
@@ -71,4 +69,5 @@
     </div>
   </div>
 </div>
+@include('includes.modals.data-anak-modal')
 @endsection

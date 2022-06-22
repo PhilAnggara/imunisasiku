@@ -14,7 +14,7 @@
             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
               <li class="breadcrumb-item"><a href="{{ route('beranda') }}"><i class="fas fa-home"></i></a></li>
               <li class="breadcrumb-item"><a href="{{ route('panduan-ibu') }}">Panduan Ibu</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Postingan</li>
+              <li class="breadcrumb-item active" aria-current="page">Artikel</li>
             </ol>
           </nav>
         </div>
