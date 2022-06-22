@@ -68,4 +68,28 @@ class Imunisasi extends Model
             }
         }
     }
+    public function toolTip()
+    {
+        if (Carbon::today() < $this->tanggal_dijadwalkan && Carbon::parse($this->tanggal_dijadwalkan)->diffInDays() < 1) {
+            return 'Besok';
+        } elseif (Carbon::today() < $this->tanggal_dijadwalkan) {
+            return Carbon::parse($this->tanggal_dijadwalkan)->diffForHumans();
+        } elseif (Carbon::parse($this->tanggal_dijadwalkan)->isSameDay(Carbon::now())) {
+            return 'Hari ini';
+        } else {
+            return 'Anda telah melewatkan jadwal imunisasi';
+        }
+    }
+    public function notificationStatus()
+    {
+        if (Carbon::today() < $this->tanggal_dijadwalkan && Carbon::parse($this->tanggal_dijadwalkan)->diffInDays() < 3) {
+            return 1;
+        } elseif (Carbon::today() < $this->tanggal_dijadwalkan) {
+            return 2;
+        } elseif (Carbon::parse($this->tanggal_dijadwalkan)->isSameDay(Carbon::now())) {
+            return 3;
+        } else {
+            return 4;
+        }
+    }
 }

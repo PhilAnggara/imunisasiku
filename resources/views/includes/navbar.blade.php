@@ -13,63 +13,9 @@
           </div>
         </li>
         @if (auth()->user()->admin())
-          <li class="nav-item dropdown">
-            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              <i class="ni ni-bell-55"></i>
-              <span class="badge badge-pill badge-danger">2</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right py-0 overflow-hidden">
-              <div class="px-3 py-3">
-                <h6 class="text-sm text-muted m-0">Anda mempunyai <strong class="text-primary">2</strong> pasian belum terjadwal.</h6>
-              </div>
-              <div class="list-group list-group-flush">
-                <div class="list-group-item">
-                  <div class="row align-items-center">
-                    <div class="col-auto">
-                      <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=2DCEBE&color=fff&bold=true&name=WA"
-                        class="avatar rounded-circle">
-                    </div>
-                    <div class="col ml--2">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                          <h4 class="mb-0 text-sm">Willy Angow</h4>
-                        </div>
-                      </div>
-                      <p class="text-sm mb-0">2 jam yang lalu</p>
-                    </div>
-                    <div class="col-auto">
-                      <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#gantiPasswordModal">
-                        Jadwalkan
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="list-group-item">
-                  <div class="row align-items-center">
-                    <div class="col-auto">
-                      <img alt="Image placeholder" src="https://ui-avatars.com/api/?background=2DCEBE&color=fff&bold=true&name=WA"
-                        class="avatar rounded-circle">
-                    </div>
-                    <div class="col ml--2">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                          <h4 class="mb-0 text-sm">Willy Angow</h4>
-                        </div>
-                      </div>
-                      <p class="text-sm mb-0">2 jam yang lalu</p>
-                    </div>
-                    <div class="col-auto">
-                      <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#gantiPasswordModal">
-                        Jadwalkan
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {{-- <a href="{{ route('beranda') }}" class="dropdown-item text-center text-primary font-weight-bold py-3">Lihat semua</a> --}}
-            </div>
-          </li>
+          @livewire('admin-notification')
+        @else
+          @livewire('user-notification')
         @endif
       </ul>
       <ul class="navbar-nav align-items-center ml-auto ml-md-0">
