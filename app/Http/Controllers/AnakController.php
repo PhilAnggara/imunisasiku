@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MyEvent;
 use App\Http\Requests\AnakRequest;
 use App\Http\Requests\UploadRequest;
 use App\Models\Anak;
@@ -46,6 +47,8 @@ class AnakController extends Controller
         
         Anak::create($data);
         Ibu::create($data);
+
+        event(new MyEvent);
 
         return redirect()->back()->with('success', 'Data berhasil disimpan!');
     }

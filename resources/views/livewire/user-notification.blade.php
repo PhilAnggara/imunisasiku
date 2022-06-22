@@ -4,11 +4,11 @@
     <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
       aria-expanded="false">
       <i class="ni ni-bell-55"></i>
-      @if ($jadwal->count())
+      @if ($jadwal && $jadwal->count())
         <span class="badge badge-pill badge-danger">{{ $jadwal->count() }}</span>
       @endif
     </a>
-    @if ($jadwal->count())
+    @if ($jadwal && $jadwal->count())
       <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right py-0 overflow-hidden">
         <div class="px-3 py-3">
           <h6 class="text-sm text-muted m-0">Anda mempunyai <strong class="text-primary">{{ $jadwal->count() }}</strong> jadwal imunisasi.</h6>

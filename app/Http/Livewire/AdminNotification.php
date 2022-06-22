@@ -11,6 +11,8 @@ class AdminNotification extends Component
     public $newUser;
     public $jenisVaksin;
 
+    protected $listeners = ['echo:my-channel,MyEvent' => 'mount'];
+
     public function mount()
     {
         $this->newUser = Anak::doesntHave('imunisasi')->get();

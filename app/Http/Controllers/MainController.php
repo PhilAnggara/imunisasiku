@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Imunisasi;
 use Carbon\Carbon;
 use App\Models\PanduanIbu;
 use App\Models\User;
@@ -17,9 +18,15 @@ class MainController extends Controller
         // Cek apakah pengguna adalah Admin, jika iya maka lempar ke beranda admin
         if (auth()->user()->role == 'Admin') {
 
-            $pengguna = User::where('role','User')->count();
+            $stat_a = User::where('role','User')->count();
+            $stat_b = Imunisasi::where('tanggal_dijadwalkan', Carbon::today())->count();
+            $stat_c = Imunisasi::where('tanggal_dijadwalkan', '>=' , Carbon::today())->where('tanggal_imunisasi', null)->count();
+            $stat_d = Imunisasi::where('tanggal_dijadwalkan', '<' , Carbon::today())->where('tanggal_imunisasi', null)->count();
             return view('pages.beranda', [
-                'pengguna' => $pengguna
+                'stat_a' => $stat_a,
+                'stat_b' => $stat_b,
+                'stat_c' => $stat_c,
+                'stat_d' => $stat_d,
             ]);
 
         // Jika pengguna adalah ibu maka lempar ke beranda ibu

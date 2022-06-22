@@ -10,3 +10,4 @@
 
 <script src="{{ url('frontend/assets/js/demo.min.js') }}"></script>
 <script src="{{ url('frontend/scripts/main.js') }}"></script>
+<script src="{{ url('js/app.js') }}"></script>

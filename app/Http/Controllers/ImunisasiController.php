@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MyEvent;
 use App\Models\Anak;
 use App\Models\Imunisasi;
 use App\Models\JenisVaksin;
@@ -31,6 +32,7 @@ class ImunisasiController extends Controller
     {
         $data = $request->all();
         Imunisasi::create($data);
+        event(new MyEvent);
         return redirect()->back()->with('success', 'Jadwal berhasil dibuat!');
     }
 
@@ -48,6 +50,7 @@ class ImunisasiController extends Controller
     {
         $data = $request->all();
         Imunisasi::find($id)->update($data);
+        event(new MyEvent);
         
         return redirect()->back()->with('success', 'Data berhasil disimpan!');
     }

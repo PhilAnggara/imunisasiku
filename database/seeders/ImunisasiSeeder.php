@@ -149,7 +149,7 @@ class ImunisasiSeeder extends Seeder
         Imunisasi::create([
             'id_anak' => 1,
             'id_jenis_vaksin' => 10,
-            'tanggal_dijadwalkan' => Carbon::now()->addDay(2),
+            'tanggal_dijadwalkan' => Carbon::today(),
             'tanggal_imunisasi' => null,
             'tenaga_medis' => 'dr. Septio Angow',
         ]);

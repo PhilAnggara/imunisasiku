@@ -17,7 +17,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase text-muted mb-0">Jumlah Pengguna</h5>
-                  <span class="h2 font-weight-bold mb-0">{{ $pengguna }}</span>
+                  <span class="h2 font-weight-bold mb-0">{{ $stat_a }}</span>
                 </div>
                 <div class="col-auto">
                   <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
@@ -38,7 +38,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase text-muted mb-0">Imunisasi Hari Ini</h5>
-                  <span class="h2 font-weight-bold mb-0">123</span>
+                  <span class="h2 font-weight-bold mb-0">{{ $stat_b }}</span>
                 </div>
                 <div class="col-auto">
                   <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
@@ -59,7 +59,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase text-muted mb-0">Imunisasi Dalam Antrian</h5>
-                  <span class="h2 font-weight-bold mb-0">123</span>
+                  <span class="h2 font-weight-bold mb-0">{{ $stat_c }}</span>
                 </div>
                 <div class="col-auto">
                   <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
@@ -80,7 +80,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title text-uppercase text-muted mb-0">Imunisasi Yang Terlewat</h5>
-                  <span class="h2 font-weight-bold mb-0">123</span>
+                  <span class="h2 font-weight-bold mb-0">{{ $stat_d }}</span>
                 </div>
                 <div class="col-auto">
                   <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
